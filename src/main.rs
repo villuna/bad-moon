@@ -29,7 +29,6 @@ fn pythag_distance(a: &[f32], b: &[f32]) -> f32 {
         .zip(b.iter())
         .map(|(a, b)| (a - b) * (a - b))
         .sum::<f32>()
-        .sqrt()
 }
 
 fn val_to_char(line: &[f32]) -> char {
