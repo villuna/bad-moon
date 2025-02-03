@@ -47,11 +47,11 @@ fn main() -> Result<()> {
     tracing_subscriber::fmt::init();
     color_eyre::install()?;
 
-    let source = PathBuf::from_str("resources/bad apple.mp4")?;
+    let source = PathBuf::from_str("../resources/bad apple.mp4")?;
     let mut decoder = video_rs::Decoder::new(source)?;
 
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
-    let file = BufReader::new(File::open("resources/bad apple.mp3").unwrap());
+    let file = BufReader::new(File::open("../resources/bad apple.mp3").unwrap());
     let source = rodio::Decoder::new(file).unwrap();
     stream_handle.play_raw(source.convert_samples())?;
 
